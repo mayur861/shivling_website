@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Narmadeshwar TrilokShivling Shop – Narmadeshwar Shivling</title>
+    <meta name="robots" content="max-image-preview:large">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TMXJ5QD6"></script>
+
+    <style>
+        :root {
+            --saffron:       #FF6B1A;
+            --saffron-light: #FF9A44;
+            --saffron-pale:  #FFF3E8;
+            --gold:          #D4A017;
+            --gold-light:    #F5C842;
+            --gold-pale:     #FFF9E6;
+            --maroon:        #6B0F1A;
+            --maroon-deep:   #3D0408;
+            --maroon-mid:    #8B1A2A;
+            --purple:        #2D1B4E;
+            --purple-mid:    #4A2970;
+            --purple-light:  #7B4FA6;
+            --cream:         #FDF6E9;
+            --white:         #FFFFFF;
+            --text-dark:     #1A0A00;
+            --text-mid:      #3D1A00;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Philosopher', serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        #particles-canvas {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; opacity: 0.4;
+        }
+
+        .divine-divider {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; margin: 18px auto; max-width: 360px;
+        }
+        .divine-divider::before, .divine-divider::after {
+            content: ''; flex: 1; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .divine-divider span { color: var(--gold); font-size: 1rem; letter-spacing: 4px; }
+
+        /* TOP BAR */
+        #top-bar {
+            background: linear-gradient(90deg, var(--maroon-deep), var(--purple), var(--maroon-deep));
+            color: var(--gold-light);
+            padding: 8px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.82rem; letter-spacing: 0.5px;
+            position: relative; z-index: 1000;
+            flex-wrap: wrap; gap: 6px;
+        }
+        #top-bar a { color: var(--gold-light); transition: color 0.3s; display: flex; align-items: center; gap: 6px; }
+        #top-bar a:hover { color: var(--saffron-light); }
+        .top-bar-left, .top-bar-right { display: flex; align-items: center; gap: 18px; }
+        .top-bar-right .social-link {
+            width: 28px; height: 28px; border-radius: 50%;
+            border: 1px solid rgba(212,160,23,0.4);
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s; font-size: 0.75rem;
+        }
+        .top-bar-right .social-link:hover { background: var(--gold); color: var(--maroon-deep); transform: scale(1.15); }
+        .top-bar-tagline {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            font-size: 0.95rem; color: var(--saffron-light); letter-spacing: 2px;
+            animation: shimmerText 3s ease-in-out infinite;
+        }
+        @keyframes shimmerText { 0%,100%{opacity:1;} 50%{opacity:0.7; color:var(--gold-light);} }
+
+        /* HEADER */
+        #main-header {
+            position: sticky; top: 0; z-index: 999;
+            background: linear-gradient(135deg, rgba(61,4,8,0.97) 0%, rgba(45,27,78,0.97) 50%, rgba(61,4,8,0.97) 100%);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 4px 30px rgba(212,160,23,0.3);
+            padding: 0 32px;
+            display: flex; align-items: center; justify-content: space-between;
+            min-height: 78px;
+        }
+        .site-logo { display: flex; align-items: center; gap: 14px; }
+        .logo-icon {
+            width: 56px; height: 56px; border-radius: 50%;
+            background: radial-gradient(circle, var(--gold) 0%, var(--saffron) 60%, var(--maroon) 100%);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px; flex-shrink: 0; border: 2px solid var(--gold-light);
+            box-shadow: 0 0 20px rgba(212,160,23,0.7);
+            animation: divinePulse 3s ease-in-out infinite;
+        }
+        @keyframes divinePulse {
+            0%,100%{box-shadow:0 0 20px rgba(212,160,23,0.7),0 0 40px rgba(255,107,26,0.4);}
+            50%{box-shadow:0 0 35px rgba(212,160,23,1),0 0 70px rgba(255,107,26,0.7);}
+        }
+        .logo-text .logo-title { font-family:'Cinzel',serif; font-size:1rem; font-weight:700; color:var(--gold-light); letter-spacing:1px; }
+        .logo-text .logo-subtitle { font-family:'Tiro Devanagari Hindi',serif; font-size:0.82rem; color:var(--saffron-light); }
+        .main-nav { display: flex; align-items: center; gap: 2px; }
+        .nav-link {
+            font-family:'Cinzel',serif; font-size:0.78rem; font-weight:500;
+            letter-spacing:1.5px; color:var(--gold-light);
+            padding:8px 14px; border-radius:4px; transition:all 0.3s;
+            text-transform:uppercase; position:relative;
+        }
+        .nav-link::after { content:''; position:absolute; bottom:4px; left:50%; right:50%; height:1px; background:var(--saffron-light); transition:all 0.3s; }
+        .nav-link:hover { color:var(--saffron-light); }
+        .nav-link:hover::after { left:14px; right:14px; }
+        .nav-burger {
+            display:none; background:none; border:2px solid var(--gold);
+            border-radius:6px; padding:6px 10px; cursor:pointer; color:var(--gold);
+            font-size:1.2rem; transition:all 0.3s;
+        }
+        .nav-burger:hover { background:var(--gold); color:var(--maroon-deep); }
+        .mobile-menu {
+            display:none; flex-direction:column;
+            background:linear-gradient(135deg,var(--maroon-deep),var(--purple));
+            border-top:1px solid var(--gold); padding:12px 0; position:relative; z-index:998;
+        }
+        .mobile-menu.open { display:flex; }
+        .mobile-menu .nav-link { padding:12px 24px; border-radius:0; border-bottom:1px solid rgba(212,160,23,0.15); }
+
+        /* HERO */
+        #hero {
+            position:relative; min-height:90vh;
+            display:flex; align-items:center; overflow:hidden;
+            background:linear-gradient(135deg,var(--maroon-deep) 0%,var(--purple) 40%,var(--maroon) 70%,var(--maroon-deep) 100%);
+        }
+        .hero-mandala-bg {
+            position:absolute; inset:0; opacity:0.06;
+            background-image:repeating-conic-gradient(from 0deg at 50% 50%,#fff 0deg 3deg,transparent 3deg 30deg);
+            animation:rotateSlow 80s linear infinite;
+        }
+        @keyframes rotateSlow{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+        .hero-radial {
+            position:absolute; inset:0;
+            background:radial-gradient(ellipse at center,rgba(212,160,23,0.18) 0%,transparent 65%);
+            animation:breathe 6s ease-in-out infinite;
+        }
+        @keyframes breathe{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.1);opacity:0.7;}}
+        .hero-border-top,.hero-border-bottom{position:absolute;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold),var(--saffron),var(--gold),transparent);}
+        .hero-border-top{top:0;} .hero-border-bottom{bottom:0;}
+        .hero-container {
+            position:relative; z-index:2; max-width:1200px; margin:0 auto;
+            padding:60px 32px; display:grid;
+            grid-template-columns:1fr 1fr; gap:56px; align-items:center;
+        }
+        .hero-om { font-size:3.5rem; color:var(--gold-light); text-shadow:0 0 30px rgba(212,160,23,0.9); margin-bottom:8px; animation:omGlow 4s ease-in-out infinite; }
+        @keyframes omGlow{0%,100%{text-shadow:0 0 20px rgba(212,160,23,0.7);}50%{text-shadow:0 0 50px rgba(212,160,23,1),0 0 80px rgba(255,154,68,0.6);}}
+        .hero-sanskrit { font-family:'Tiro Devanagari Hindi',serif; font-size:2rem; color:var(--saffron-light); letter-spacing:4px; margin-bottom:12px; animation:shimmerText 4s ease-in-out infinite; }
+        .hero-title { font-family:'Cinzel',serif; font-size:clamp(1.6rem,3vw,2.5rem); font-weight:700; color:var(--white); line-height:1.3; margin-bottom:14px; }
+        .hero-title span { color:var(--gold-light); }
+        .hero-subtitle-hindi { font-family:'Tiro Devanagari Hindi',serif; font-size:1.05rem; color:var(--gold-light); margin-bottom:18px; }
+        .hero-desc { font-size:0.95rem; color:rgba(255,255,255,0.85); line-height:1.85; margin-bottom:30px; }
+        .hero-cta { display:flex; gap:14px; flex-wrap:wrap; }
+        .btn-primary {
+            background:linear-gradient(135deg,var(--gold),var(--saffron));
+            color:var(--maroon-deep); font-family:'Cinzel',serif; font-weight:700;
+            font-size:0.82rem; letter-spacing:1.5px; padding:13px 26px; border-radius:6px;
+            text-transform:uppercase; transition:all 0.3s;
+            box-shadow:0 4px 20px rgba(212,160,23,0.5); border:none; cursor:pointer; display:inline-block;
+        }
+        .btn-primary:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(212,160,23,0.7); }
+        .btn-secondary {
+            background:transparent; color:var(--gold-light); font-family:'Cinzel',serif; font-weight:600;
+            font-size:0.82rem; letter-spacing:1.5px; padding:12px 26px; border-radius:6px;
+            text-transform:uppercase; transition:all 0.3s; border:2px solid var(--gold); display:inline-block;
+        }
+        .btn-secondary:hover { background:var(--gold); color:var(--maroon-deep); transform:translateY(-3px); }
+        .hero-images { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+        .hero-img-wrap {
+            border-radius:12px; overflow:hidden; border:2px solid rgba(212,160,23,0.4);
+            box-shadow:0 8px 30px rgba(0,0,0,0.5); transition:all 0.4s; position:relative;
+        }
+        .hero-img-wrap::before {
+            content:''; position:absolute; inset:0;
+            background:linear-gradient(to bottom,transparent 60%,rgba(61,4,8,0.6) 100%); z-index:1;
+        }
+        .hero-img-wrap:hover { border-color:var(--gold); box-shadow:0 12px 40px rgba(212,160,23,0.5); transform:translateY(-5px); }
+        .hero-img-wrap img { width:100%; height:230px; object-fit:cover; }
+        .hero-img-wrap:first-child { margin-top:28px; }
+
+        /* SECTION HEADERS */
+        .section-header { text-align:center; margin-bottom:48px; }
+        .section-eyebrow { font-family:'Tiro Devanagari Hindi',serif; font-size:1.05rem; color:var(--saffron); letter-spacing:3px; display:block; margin-bottom:8px; }
+        .section-title { font-family:'Cinzel',serif; font-size:clamp(1.5rem,3vw,2.3rem); font-weight:700; color:var(--maroon-deep); letter-spacing:1px; line-height:1.3; }
+        .section-title span { color:var(--saffron); }
+
+        /* ABOUT */
+        #about { padding:80px 32px; background:linear-gradient(180deg,var(--cream) 0%,var(--gold-pale) 100%); position:relative; z-index:1; }
+        .about-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+        .about-badge {
+            display:inline-block; background:linear-gradient(135deg,var(--gold),var(--saffron));
+            color:var(--maroon-deep); font-family:'Cinzel',serif; font-size:0.68rem; font-weight:700;
+            letter-spacing:3px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:14px;
+        }
+        .about-heading { font-family:'Cinzel',serif; font-size:clamp(1.3rem,2.5vw,1.9rem); font-weight:700; color:var(--maroon-deep); margin-bottom:10px; }
+        .about-hindi { font-family:'Tiro Devanagari Hindi',serif; font-size:1.05rem; color:var(--saffron); font-weight:700; margin-bottom:14px; }
+        .about-text { font-size:0.95rem; line-height:1.9; color:var(--text-mid); margin-bottom:14px; }
+        .about-image-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+        .about-img-frame { border-radius:10px; overflow:hidden; border:2px solid var(--gold); box-shadow:0 6px 24px rgba(107,15,26,0.2); transition:all 0.3s; }
+        .about-img-frame:hover { transform:scale(1.03); box-shadow:0 10px 36px rgba(212,160,23,0.4); }
+        .about-img-frame img { width:100%; height:195px; object-fit:cover; }
+        .about-img-frame:first-child { grid-row:span 2; }
+        .about-img-frame:first-child img { height:100%; }
+
+        /* PRODUCTS */
+        #products {
+            padding:80px 32px; position:relative; z-index:1; overflow:hidden;
+            background:linear-gradient(180deg,var(--maroon-deep) 0%,var(--purple) 50%,var(--maroon-deep) 100%);
+        }
+        #products::before {
+            content:'🕉'; position:absolute; font-size:380px; top:50%; left:50%;
+            transform:translate(-50%,-50%); opacity:0.03; pointer-events:none;
+            animation:rotateSlow 120s linear infinite;
+        }
+        #products .section-title { color:var(--gold-light); }
+        #products .section-eyebrow { color:var(--saffron-light); }
+        .products-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:22px; }
+        .product-card {
+            background:linear-gradient(160deg,rgba(255,249,230,0.07) 0%,rgba(212,160,23,0.04) 100%);
+            border:1px solid rgba(212,160,23,0.3); border-radius:16px; overflow:hidden;
+            transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); position:relative; backdrop-filter:blur(6px);
+        }
+        .product-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--saffron),var(--gold)); opacity:0; transition:opacity 0.3s; }
+        .product-card:hover { border-color:var(--gold); transform:translateY(-8px); box-shadow:0 20px 60px rgba(212,160,23,0.3); }
+        .product-card:hover::before { opacity:1; }
+        .product-img-wrap { overflow:hidden; position:relative; }
+        .product-img-wrap img { width:100%; height:275px; object-fit:cover; transition:transform 0.5s ease; display:block; }
+        .product-card:hover .product-img-wrap img { transform:scale(1.07); }
+        .product-overlay { position:absolute; inset:0; background:linear-gradient(to bottom,transparent 50%,rgba(45,27,78,0.88) 100%); opacity:0; transition:opacity 0.4s; }
+        .product-card:hover .product-overlay { opacity:1; }
+        .product-info { padding:16px 14px 18px; }
+        .product-name { font-family:'Cinzel',serif; font-size:0.9rem; font-weight:600; color:var(--gold-light); margin-bottom:12px; line-height:1.4; text-align:center; }
+        .product-actions { display:flex; flex-direction:column; gap:8px; }
+        .btn-whatsapp {
+            display:flex; align-items:center; justify-content:center; gap:8px;
+            background:linear-gradient(135deg,#25D366,#128C7E); color:white;
+            font-family:'Cinzel',serif; font-size:0.73rem; font-weight:600;
+            letter-spacing:1px; padding:10px 14px; border-radius:6px; transition:all 0.3s; text-transform:uppercase;
+        }
+        .btn-whatsapp:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(37,211,102,0.4); }
+        .btn-call {
+            display:flex; align-items:center; justify-content:center; gap:8px;
+            background:linear-gradient(135deg,var(--gold),var(--saffron)); color:var(--maroon-deep);
+            font-family:'Cinzel',serif; font-size:0.73rem; font-weight:700;
+            letter-spacing:1px; padding:10px 14px; border-radius:6px; transition:all 0.3s; text-transform:uppercase;
+        }
+        .btn-call:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(212,160,23,0.5); }
+
+        /* FEATURES */
+        #features { padding:80px 32px; background:var(--cream); position:relative; z-index:1; }
+        .features-grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:30px; }
+        .feature-card {
+            text-align:center; padding:36px 26px; background:var(--white);
+            border-radius:16px; border:1px solid rgba(212,160,23,0.22);
+            box-shadow:0 4px 20px rgba(107,15,26,0.06); transition:all 0.4s; position:relative; overflow:hidden;
+        }
+        .feature-card::after { content:''; position:absolute; bottom:0;left:0;right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--saffron),var(--gold)); transform:scaleX(0); transition:transform 0.4s; }
+        .feature-card:hover { transform:translateY(-6px); box-shadow:0 16px 48px rgba(212,160,23,0.2); }
+        .feature-card:hover::after { transform:scaleX(1); }
+        .feature-icon { width:70px;height:70px; background:linear-gradient(135deg,var(--gold-pale),var(--saffron-pale)); border-radius:50%; display:flex;align-items:center;justify-content:center; margin:0 auto 18px; font-size:1.8rem; border:2px solid rgba(212,160,23,0.3); transition:all 0.3s; }
+        .feature-card:hover .feature-icon { background:linear-gradient(135deg,var(--gold),var(--saffron)); box-shadow:0 0 25px rgba(212,160,23,0.5); }
+        .feature-title { font-family:'Cinzel',serif; font-size:0.95rem; font-weight:700; color:var(--maroon-deep); margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; }
+        .feature-desc { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+
+        /* CONTACT */
+        #contact { padding:80px 32px; background:linear-gradient(135deg,var(--gold-pale) 0%,var(--saffron-pale) 100%); position:relative; z-index:1; }
+        .contact-inner { max-width:580px; margin:0 auto; }
+        .contact-form { background:white; border-radius:20px; padding:38px; border:2px solid rgba(212,160,23,0.3); box-shadow:0 12px 48px rgba(107,15,26,0.12); }
+        .form-group { margin-bottom:18px; }
+        .form-input,.form-textarea { width:100%; padding:13px 16px; border:1.5px solid rgba(212,160,23,0.3); border-radius:8px; font-family:'Philosopher',serif; font-size:0.93rem; color:var(--text-dark); background:var(--cream); transition:all 0.3s; outline:none; }
+        .form-input::placeholder,.form-textarea::placeholder { color:#aaa; font-style:italic; }
+        .form-input:focus,.form-textarea:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(212,160,23,0.15); background:white; }
+        .form-textarea { min-height:105px; resize:vertical; }
+        .btn-submit { width:100%; background:linear-gradient(135deg,var(--maroon),var(--purple)); color:var(--gold-light); font-family:'Cinzel',serif; font-size:0.88rem; font-weight:700; letter-spacing:2px; padding:15px; border-radius:8px; text-transform:uppercase; transition:all 0.3s; border:2px solid var(--gold); cursor:pointer; }
+        .btn-submit:hover { background:linear-gradient(135deg,var(--gold),var(--saffron)); color:var(--maroon-deep); transform:translateY(-2px); box-shadow:0 8px 28px rgba(212,160,23,0.4); }
+        .contact-info-row { display:flex; gap:14px; margin-top:22px; flex-wrap:wrap; }
+        .contact-item { display:flex; align-items:center; gap:10px; flex:1; background:white; border-radius:10px; padding:13px 14px; border:1px solid rgba(212,160,23,0.2); box-shadow:0 2px 10px rgba(0,0,0,0.05); }
+        .contact-item i { color:var(--saffron); font-size:1.05rem; flex-shrink:0; }
+        .contact-item a { font-size:0.8rem; color:var(--text-mid); transition:color 0.3s; line-height:1.5; }
+        .contact-item a:hover { color:var(--saffron); }
+
+        /* FOOTER */
+        #footer { background:linear-gradient(180deg,var(--maroon-deep) 0%,#0D0005 100%); padding:48px 32px 24px; position:relative; z-index:1; border-top:3px solid var(--gold); }
+        .footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px; margin-bottom:36px; }
+        .footer-tagline { font-family:'Tiro Devanagari Hindi',serif; font-size:1.05rem; color:var(--saffron-light); margin-top:14px; margin-bottom:10px; letter-spacing:2px; }
+        .footer-desc { font-size:0.83rem; color:rgba(255,255,255,0.55); line-height:1.7; }
+        .footer-heading { font-family:'Cinzel',serif; font-size:0.82rem; font-weight:700; color:var(--gold-light); letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid rgba(212,160,23,0.2); }
+        .footer-links { list-style:none; }
+        .footer-links li { margin-bottom:8px; }
+        .footer-links a { color:rgba(255,255,255,0.55); font-size:0.83rem; transition:all 0.3s; display:flex; align-items:center; gap:6px; }
+        .footer-links a::before { content:'🔱'; font-size:0.65rem; }
+        .footer-links a:hover { color:var(--gold-light); padding-left:4px; }
+        .footer-social { display:flex; gap:10px; margin-top:14px; }
+        .footer-social-link { width:36px;height:36px; border-radius:50%; border:1.5px solid rgba(212,160,23,0.4); display:flex;align-items:center;justify-content:center; color:var(--gold-light); font-size:0.85rem; transition:all 0.3s; }
+        .footer-social-link:hover { background:linear-gradient(135deg,var(--gold),var(--saffron)); color:var(--maroon-deep); border-color:var(--gold); transform:translateY(-3px); box-shadow:0 6px 20px rgba(212,160,23,0.4); }
+        .footer-bottom { max-width:1100px; margin:0 auto; padding-top:22px; border-top:1px solid rgba(212,160,23,0.15); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+        .footer-copyright { font-size:0.78rem; color:rgba(255,255,255,0.35); }
+        .footer-blessing { font-family:'Tiro Devanagari Hindi',serif; font-size:0.95rem; color:var(--gold); letter-spacing:2px; }
+
+        /* GOLD RULE */
+        .gold-rule { border:none; height:2px; background:linear-gradient(90deg,transparent,var(--gold),var(--saffron),var(--gold),transparent); }
+
+        /* SCROLL REVEAL */
+        .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease,transform 0.7s ease; }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+        .reveal-delay-1{transition-delay:0.1s;} .reveal-delay-2{transition-delay:0.2s;} .reveal-delay-3{transition-delay:0.3s;} .reveal-delay-4{transition-delay:0.4s;}
+
+        /* RESPONSIVE */
+        @media(max-width:900px){
+            .hero-container{grid-template-columns:1fr; gap:36px;}
+            .about-inner{grid-template-columns:1fr; gap:36px;}
+            .footer-inner{grid-template-columns:1fr 1fr;}
+            #main-header{padding:0 20px;}
+        }
+        @media(max-width:640px){
+            #top-bar{flex-direction:column; font-size:0.72rem; text-align:center;}
+            .main-nav{display:none;}
+            .nav-burger{display:flex; align-items:center;}
+            .hero-container{padding:40px 20px;}
+            .hero-om{font-size:2.5rem;}
+            .hero-sanskrit{font-size:1.4rem;}
+            .hero-img-wrap img{height:160px;}
+            #about,#products,#features,#contact{padding:52px 20px;}
+            .products-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px;}
+            .footer-inner{grid-template-columns:1fr; gap:26px;}
+            .footer-bottom{flex-direction:column; text-align:center;}
+            .contact-form{padding:22px 18px;}
+            .contact-info-row{flex-direction:column;}
+            .hero-cta{flex-direction:column;}
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="particles-canvas"></canvas>
+
+<!-- TOP BAR -->
+<div id="top-bar">
+    <div class="top-bar-left">
+        <a href="tel:916263540349"><i class="fas fa-phone-square-alt"></i> Mr. Mayur Birla — 916263540349</a>
+        <a href="mailto:mayurbirla907@gmail.com"><i class="fas fa-envelope-open-text"></i> mayurbirla907@gmail.com</a>
+    </div>
+    <div class="top-bar-tagline">🕉️ हर हर महादेव 🕉️</div>
+    <div class="top-bar-right">
+        <a class="social-link" href="https://wa.me/916263540349?text=" target="_blank" rel="nofollow noopener" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a class="social-link" href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a class="social-link" href="#" target="_blank" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+    </div>
+</div>
+
+<!-- STICKY HEADER -->
+<header id="main-header">
+    <a href="https://wa.me/916263540349" class="site-logo">
+        <div class="logo-icon">🕉️</div>
+        <div class="logo-text">
+            <div class="logo-title">Narmadeshwar TrilokShivling Shop</div>
+            <div class="logo-subtitle">नर्मदेश्वर त्रिलोक शिवलिंग शॉप</div>
+        </div>
+    </a>
+    <nav class="main-nav">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#features" class="nav-link">Why Us</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="nav-burger" id="burger-btn" aria-label="Menu">&#9776;</button>
+</header>
+<nav class="mobile-menu" id="mobile-menu">
+    <a href="#hero" class="nav-link" onclick="closeMobileMenu()">Home</a>
+    <a href="#about" class="nav-link" onclick="closeMobileMenu()">About</a>
+    <a href="#products" class="nav-link" onclick="closeMobileMenu()">Products</a>
+    <a href="#features" class="nav-link" onclick="closeMobileMenu()">Why Us</a>
+    <a href="#contact" class="nav-link" onclick="closeMobileMenu()">Contact</a>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="hero">
+    <div class="hero-mandala-bg"></div>
+    <div class="hero-radial"></div>
+    <div class="hero-border-top"></div>
+    <div class="hero-border-bottom"></div>
+    <div class="hero-container">
+        <div class="hero-text">
+            <div class="hero-om">🕉️</div>
+            <div class="hero-sanskrit">ॐ नमः शिवाय</div>
+            <h1 class="hero-title">Welcome to <span>Narmadeshwar</span><br>TrilokShivling Shop</h1>
+            <p class="hero-subtitle-hindi">घर बैठे नर्मदेश्वर शिवलिंग प्राप्त करे सिर्फ एक फ़ोन कॉल से</p>
+            <p class="hero-desc">Such a miraculous stone obtained from Maa Narmada, worshiping which brings happiness, peace and wealth in the house. Order from anywhere — delivered with devotion.</p>
+            <div class="hero-cta">
+                <a class="btn-primary" href="tel:916263540349">📞 Call Now</a>
+                <a class="btn-secondary" href="https://wa.me/916263540349?text=" target="_blank">💬 WhatsApp Order</a>
+            </div>
+        </div>
+        <div class="hero-images">
+            <div class="hero-img-wrap">
+                <a href="https://wa.me/916263540349?text=">
+                    <img width="575" height="1024"
+                        src="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/1-1-575x1024.jpg"
+                        class="attachment-large size-large wp-image-317" alt=""
+                        srcset="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/1-1-575x1024.jpg 575w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/1-1-169x300.jpg 169w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/1-1-768x1367.jpg 768w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/1-1.jpg 899w"
+                        sizes="(max-width: 575px) 100vw, 575px">
+                </a>
+            </div>
+            <div class="hero-img-wrap">
+                <a href="https://wa.me/916263540349?text=">
+                    <img loading="lazy" width="575" height="1024"
+                        src="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/2-575x1024.jpg"
+                        class="attachment-large size-large wp-image-318" alt=""
+                        srcset="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/2-575x1024.jpg 575w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/2-169x300.jpg 169w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/2-768x1367.jpg 768w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/2.jpg 899w"
+                        sizes="(max-width: 575px) 100vw, 575px">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="gold-rule">
+
+<!-- ABOUT SECTION -->
+<section id="about">
+    <div class="section-header reveal">
+        <span class="section-eyebrow">🔱 हमारे बारे में 🔱</span>
+        <h2 class="section-title">Welcome to Our <span>Divine Shop</span></h2>
+        <div class="divine-divider"><span>✦ ✦ ✦</span></div>
+    </div>
+    <div class="about-inner">
+        <div class="reveal reveal-delay-1">
+            <span class="about-badge">🕉️ Authentic &amp; Sacred</span>
+            <h3 class="about-heading">Narmadeshwar TrilokShivling Shop</h3>
+            <p class="about-hindi">नर्मदेश्वर त्रिलोक शिवलिंग शॉप</p>
+            <p class="about-text">Such a miraculous stone obtained from Maa Narmada, worshiping which brings happiness, peace and wealth in the house. This is called Narmadeshwar Shivling. If you want to get miraculous Narmadeshwar Shivling at home then please order by clicking the button below.</p>
+            <p class="about-text"><strong>घर बैठे नर्मदेश्वर शिवलिंग प्राप्त करे सिर्फ एक फ़ोन कॉल से</strong></p>
+            <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;">
+                <a class="btn-primary" href="tel:916263540349">📞 Call Now</a>
+                <a class="btn-secondary" href="#products">🛍️ Our Products</a>
+            </div>
+        </div>
+        <div class="about-image-grid reveal reveal-delay-2">
+            <div class="about-img-frame">
+                <img loading="lazy" width="303" height="272"
+                    src="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/07/9-removebg-preview.png"
+                    class="attachment-full size-full wp-image-18" alt="">
+            </div>
+            <div class="about-img-frame">
+                <img loading="lazy" decoding="async" width="768" height="1024"
+                    src="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2024/06/12-768x1024.jpg"
+                    class="attachment-large size-large wp-image-285" alt=""
+                    srcset="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2024/06/12-768x1023.jpg 768w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2024/06/12-225x300.jpg 225w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2024/06/12.jpg 1200w"
+                    sizes="(max-width: 768px) 100vw, 768px">
+            </div>
+            <div class="about-img-frame">
+                <img loading="lazy" decoding="async" width="768" height="1024"
+                    src="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/14-768x1024.jpg"
+                    class="attachment-large size-large wp-image-271" alt=""
+                    srcset="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/14-768x1024.jpg 768w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/14-225x300.jpg 225w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/14.jpg 960w"
+                    sizes="(max-width: 768px) 100vw, 768px">
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="gold-rule">
+
+<!-- PRODUCTS SECTION -->
+<section id="products">
+    <div class="section-header reveal">
+        <span class="section-eyebrow">🕉️ हमारे उत्पाद 🕉️</span>
+        <h2 class="section-title" style="color:var(--gold-light);">Sacred <span style="color:var(--saffron-light);">Shivling Collection</span></h2>
+        <div class="divine-divider"><span style="color:var(--gold-light);">✦ ✦ ✦</span></div>
+    </div>
+    <div class="products-grid">
+
+        <div class="product-card reveal reveal-delay-1">
+            <div class="product-img-wrap">
+                <a href="https://narmadeshwartrilokshivling.com/product/trilok-shivling/">
+                    <img loading="lazy" decoding="async" width="768" height="1024"
+                        src="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2024/06/12-768x1024.jpg"
+                        class="attachment-large size-large wp-image-285" alt=""
+                        srcset="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2024/06/12-768x1023.jpg 768w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2024/06/12-225x300.jpg 225w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2024/06/12-1153x1536.jpg 1153w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2024/06/12-600x800.jpg 600w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2024/06/12.jpg 1200w"
+                        sizes="(max-width: 768px) 100vw, 768px">
+                </a>
+                <div class="product-overlay"></div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name"><a href="https://narmadeshwartrilokshivling.com/product/trilok-shivling/" style="color:inherit;">TilakDhari Narmadeshwar Shivling</a></h3>
+                <div class="product-actions">
+                    <a class="btn-whatsapp" href="https://api.whatsapp.com/send?phone=916263540349&text=Trilok Shivling Shop https://narmadeshwartrilokshivling.com/product/trilok-shivling/" target="_blank"><i class="fab fa-whatsapp"></i> Order On WhatsApp</a>
+                    <a class="btn-call" href="tel:916263540349"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-2">
+            <div class="product-img-wrap">
+                <a href="https://narmadeshwartrilokshivling.com/product/trilok-shivling/">
+                    <img loading="lazy" decoding="async" width="768" height="1024"
+                        src="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/14-768x1024.jpg"
+                        class="attachment-large size-large wp-image-271" alt=""
+                        srcset="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/14-768x1024.jpg 768w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/14-225x300.jpg 225w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/14-600x800.jpg 600w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/14.jpg 960w"
+                        sizes="(max-width: 768px) 100vw, 768px">
+                </a>
+                <div class="product-overlay"></div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name"><a href="https://narmadeshwartrilokshivling.com/product/trilok-shivling/" style="color:inherit;">Ardhnareshwar Narmadeshwar Shivling</a></h3>
+                <div class="product-actions">
+                    <a class="btn-whatsapp" href="https://api.whatsapp.com/send?phone=916263540349&text=Trilok Shivling Shop https://narmadeshwartrilokshivling.com/product/trilok-shivling/" target="_blank"><i class="fab fa-whatsapp"></i> Order On WhatsApp</a>
+                    <a class="btn-call" href="tel:916263540349"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-3">
+            <div class="product-img-wrap">
+                <a href="https://narmadeshwartrilokshivling.com/product/trilok-shivling/">
+                    <img loading="lazy" decoding="async" width="768" height="1024"
+                        src="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/13-768x1024.jpg"
+                        class="attachment-large size-large wp-image-272" alt=""
+                        srcset="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/13-768x1024.jpg 768w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/13-225x300.jpg 225w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/13-1152x1536.jpg 1152w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/13-600x800.jpg 600w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/08/13.jpg 1200w"
+                        sizes="(max-width: 768px) 100vw, 768px">
+                </a>
+                <div class="product-overlay"></div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name"><a href="https://narmadeshwartrilokshivling.com/product/trilok-shivling/" style="color:inherit;">Narmadeshwar Shivling with Stand</a></h3>
+                <div class="product-actions">
+                    <a class="btn-whatsapp" href="https://api.whatsapp.com/send?phone=916263540349&text=Trilok Shivling Shop https://narmadeshwartrilokshivling.com/product/trilok-shivling/" target="_blank"><i class="fab fa-whatsapp"></i> Order On WhatsApp</a>
+                    <a class="btn-call" href="tel:916263540349"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-4">
+            <div class="product-img-wrap">
+                <a href="https://narmadeshwartrilokshivling.com/product/trilok-shivling/">
+                    <img loading="lazy" decoding="async" width="768" height="1024"
+                        src="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/07/15-1-768x1024.jpg"
+                        class="attachment-large size-large wp-image-278" alt=""
+                        srcset="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/07/15-1-768x1024.jpg 768w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/07/15-1-225x300.jpg 225w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/07/15-1-600x800.jpg 600w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/07/15-1.jpg 960w"
+                        sizes="(max-width: 768px) 100vw, 768px">
+                </a>
+                <div class="product-overlay"></div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name"><a href="https://narmadeshwartrilokshivling.com/product/trilok-shivling/" style="color:inherit;">Small Size Narmadeshwar Shivling for Home</a></h3>
+                <div class="product-actions">
+                    <a class="btn-whatsapp" href="https://api.whatsapp.com/send?phone=916263540349&text=Trilok Shivling Shop https://narmadeshwartrilokshivling.com/product/trilok-shivling/" target="_blank"><i class="fab fa-whatsapp"></i> Order On WhatsApp</a>
+                    <a class="btn-call" href="tel:916263540349"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-1">
+            <div class="product-img-wrap">
+                <a href="https://narmadeshwartrilokshivling.com/product/trilok-shivling/">
+                    <img loading="lazy" decoding="async" width="768" height="1024"
+                        src="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/07/2-1-768x1024.jpg"
+                        class="attachment-large size-large wp-image-281" alt=""
+                        srcset="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/07/2-1-768x1024.jpg 768w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/07/2-1-225x300.jpg 225w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/07/2-1-600x800.jpg 600w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2023/07/2-1.jpg 780w"
+                        sizes="(max-width: 768px) 100vw, 768px">
+                </a>
+                <div class="product-overlay"></div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name"><a href="https://narmadeshwartrilokshivling.com/product/trilok-shivling/" style="color:inherit;">Natural Narmadeshwar Shivling</a></h3>
+                <div class="product-actions">
+                    <a class="btn-whatsapp" href="https://api.whatsapp.com/send?phone=916263540349&text=Trilok Shivling Shop https://narmadeshwartrilokshivling.com/product/trilok-shivling/" target="_blank"><i class="fab fa-whatsapp"></i> Order On WhatsApp</a>
+                    <a class="btn-call" href="tel:916263540349"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-2">
+            <div class="product-img-wrap">
+                <a href="https://narmadeshwartrilokshivling.com/product/trilok-shivling/">
+                    <img loading="lazy" decoding="async" width="575" height="1024"
+                        src="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/2-575x1024.jpg"
+                        class="attachment-large size-large wp-image-318" alt=""
+                        srcset="https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/2-575x1024.jpg 575w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/2-169x300.jpg 169w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/2-768x1367.jpg 768w, https://narmadeshwarbanalingamshop.com/wp-content/uploads/2025/01/2.jpg 899w"
+                        sizes="(max-width: 575px) 100vw, 575px">
+                </a>
+                <div class="product-overlay"></div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name"><a href="https://narmadeshwartrilokshivling.com/product/trilok-shivling/" style="color:inherit;">Premium Narmadeshwar Shivling Set</a></h3>
+                <div class="product-actions">
+                    <a class="btn-whatsapp" href="https://api.whatsapp.com/send?phone=916263540349&text=Trilok Shivling Shop https://narmadeshwartrilokshivling.com/product/trilok-shivling/" target="_blank"><i class="fab fa-whatsapp"></i> Order On WhatsApp</a>
+                    <a class="btn-call" href="tel:916263540349"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<hr class="gold-rule">
+
+<!-- FEATURES SECTION -->
+<section id="features">
+    <div class="section-header reveal">
+        <span class="section-eyebrow">🔱 हमारी विशेषताएं 🔱</span>
+        <h2 class="section-title">Why Choose <span>Our Shop</span></h2>
+        <div class="divine-divider"><span>✦ ✦ ✦</span></div>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-icon">🚚</div>
+            <h3 class="feature-title">Worldwide Shipping</h3>
+            <p class="feature-desc">We do free and paid delivery in India and other countries according to order. Your Shivling reaches you safely.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+            <div class="feature-icon">✅</div>
+            <h3 class="feature-title">Best Quality</h3>
+            <p class="feature-desc">Our company manufactures the best quality products and we deliver the best quality products to the customers.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+            <div class="feature-icon">🕐</div>
+            <h3 class="feature-title">24/7 Customer Support</h3>
+            <p class="feature-desc">We are available 24 hours a day, 7 days a week, you can call us any time to confirm your order.</p>
+        </div>
+    </div>
+</section>
+
+<hr class="gold-rule">
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+    <div class="section-header reveal">
+        <span class="section-eyebrow">🕉️ संपर्क करें 🕉️</span>
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+        <div class="divine-divider"><span>✦ ✦ ✦</span></div>
+    </div>
+    <div class="contact-inner reveal">
+        <div class="contact-form">
+            <form method="post" name="New Form" id="divine-contact-form">
+                <input type="hidden" name="post_id" value="13">
+                <input type="hidden" name="form_id" value="ff81bb4">
+                <div class="form-group">
+                    <input type="text" id="form-field-name" name="form_fields[name]" class="form-input" placeholder="Enter your Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="form-field-field_f730942" name="form_fields[field_f730942]" class="form-input" placeholder="Enter your Number">
+                </div>
+                <div class="form-group">
+                    <textarea id="form-field-message" name="form_fields[message]" class="form-textarea" placeholder="Your message or query..."></textarea>
+                </div>
+                <button type="submit" id="sendbtn" class="btn-submit">🕉️ Send via WhatsApp</button>
+            </form>
+        </div>
+        <div class="contact-info-row">
+            <div class="contact-item">
+                <i class="fas fa-phone-square-alt"></i>
+                <a href="tel:916263540349">Mr. Mayur Birla<br>916263540349</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope-open-text"></i>
+                <a href="mailto:mayurbirla907@gmail.com">mayurbirla907@gmail.com</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="gold-rule">
+
+<!-- FOOTER -->
+<footer id="footer">
+    <div class="footer-inner">
+        <div class="reveal">
+            <a href="https://wa.me/916263540349" class="site-logo" style="margin-bottom:10px;display:inline-flex;">
+                <div class="logo-icon" style="width:44px;height:44px;font-size:21px;">🕉️</div>
+                <div class="logo-text">
+                    <div class="logo-title">Narmadeshwar TrilokShivling</div>
+                    <div class="logo-subtitle">नर्मदेश्वर त्रिलोक शिवलिंग शॉप</div>
+                </div>
+            </a>
+            <p class="footer-tagline">🕉️ हर हर महादेव 🔱</p>
+            <p class="footer-desc">Authentic Narmadeshwar Shivlings sourced from the sacred Narmada river, delivered with devotion to your doorstep.</p>
+            <div class="footer-social">
+                <a class="footer-social-link" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="footer-social-link" href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a class="footer-social-link" href="https://wa.me/916263540349?text=" target="_blank" rel="nofollow noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Why Choose Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://narmadeshwarbanalingamshop.com/privacy-policy">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="reveal reveal-delay-2">
+            <h4 class="footer-heading">Contact Us</h4>
+            <ul class="footer-links">
+                <li><a href="tel:916263540349"><i class="fas fa-phone" style="margin-right:6px;color:var(--saffron);font-size:0.75rem;"></i> 916263540349</a></li>
+                <li><a href="mailto:mayurbirla907@gmail.com"><i class="fas fa-envelope" style="margin-right:6px;color:var(--saffron);font-size:0.75rem;"></i> mayurbirla907@gmail.com</a></li>
+                <li><a href="https://wa.me/916263540349?text=" target="_blank"><i class="fab fa-whatsapp" style="margin-right:6px;color:#25D366;font-size:0.75rem;"></i> WhatsApp Order</a></li>
+            </ul>
+            <div style="margin-top:18px;padding:14px;border:1px solid rgba(212,160,23,0.2);border-radius:10px;background:rgba(212,160,23,0.05);">
+                <p style="font-family:'Tiro Devanagari Hindi',serif;color:var(--gold-light);font-size:1rem;letter-spacing:2px;margin-bottom:4px;">ॐ नमः शिवाय</p>
+                <p style="color:rgba(255,255,255,0.45);font-size:0.78rem;">May Lord Shiva bless your home with peace, prosperity &amp; divine grace.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span class="footer-copyright">Copyright © 2024 All rights reserved. Narmadeshwar TrilokShivling Shop</span>
+        <span class="footer-blessing">🕉️ ॐ नमः शिवाय 🔱</span>
+    </div>
+</footer>
+
+<!-- CHATY WIDGET (original preserved) -->
+<div id="chaty-widget-0" class="chaty" style="position:fixed;bottom:25px;right:25px;z-index:9999;">
+    <div class="chaty-widget">
+        <div class="chaty-channel-list" style="display:flex;flex-direction:column;gap:8px;margin-bottom:8px;align-items:center;">
+            <a href="tel:+916263540349" target="_blank" rel="nofollow noopener" aria-label="Phone" style="display:none;" class="chaty-channel Phone-channel" id="Phone-0-channel">
+                <span class="chaty-svg"><svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="19.4395" cy="19.4395" r="19.4395" fill="#03E78B"></circle><path d="M19.3929 14.9176C17.752 14.7684 16.2602 14.3209 14.7684 13.7242C14.0226 13.4259 13.1275 13.7242 12.8292 14.4701L11.7849 16.2602C8.65222 14.6193 6.11623 11.9341 4.47529 8.95057L6.41458 7.90634C7.16046 7.60799 7.45881 6.71293 7.16046 5.96705C6.56375 4.47529 6.11623 2.83435 5.96705 1.34259C5.96705 0.596704 5.22117 0 4.47529 0H0.745882C0.298353 0 5.69062e-07 0.298352 5.69062e-07 0.745881C5.69062e-07 3.72941 0.596704 6.71293 1.93929 9.3981C3.87858 13.575 7.30964 16.8569 11.3374 18.7962C14.0226 20.1388 17.0061 20.7355 19.9896 20.7355C20.4371 20.7355 20.7355 20.4371 20.7355 19.9896V16.4094C20.7355 15.5143 20.1388 14.9176 19.3929 14.9176Z" transform="translate(9.07179 9.07178)" fill="white"></path></svg></span>
+            </a>
+            <a href="https://wa.me/+916263540349?text=" target="_blank" rel="nofollow noopener" aria-label="Whatsapp" style="display:none;" class="chaty-channel Whatsapp-channel" id="Whatsapp-0-channel">
+                <span class="chaty-svg"><svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="19.4395" cy="19.4395" r="19.4395" fill="#49E670"></circle><path d="M12.9821 10.1115C12.7029 10.7767 11.5862 11.442 10.7486 11.575C10.1902 11.7081 9.35269 11.8411 6.84003 10.7767C3.48981 9.44628 1.39593 6.25317 1.25634 6.12012C1.11674 5.85403 2.13001e-06 4.39053 2.13001e-06 2.92702C2.13001e-06 1.46351 0.83755 0.665231 1.11673 0.399139C1.39592 0.133046 1.8147 1.01506e-06 2.23348 1.01506e-06C2.37307 1.01506e-06 2.51267 1.01506e-06 2.65226 1.01506e-06C2.93144 1.01506e-06 3.21063 -2.02219e-06 3.35022 0.532183C3.62941 1.19741 4.32736 2.66092 4.32736 2.79397C4.46696 2.92702 4.46696 3.19311 4.32736 3.32616C4.18777 3.59225 4.18777 3.59224 3.90858 3.85834C3.76899 3.99138 3.6294 4.12443 3.48981 4.39052C3.35022 4.52357 3.21063 4.78966 3.35022 5.05576C3.48981 5.32185 4.18777 6.38622 5.16491 7.18449C6.42125 8.24886 7.39839 8.51496 7.81717 8.78105C8.09636 8.91409 8.37554 8.9141 8.65472 8.648C8.93391 8.38191 9.21309 7.98277 9.49228 7.58363C9.77146 7.31754 10.0507 7.1845 10.3298 7.31754C10.609 7.45059 12.2841 8.11582 12.5633 8.38191C12.8425 8.51496 13.1217 8.648 13.1217 8.78105C13.1217 8.78105 13.1217 9.44628 12.9821 10.1115Z" transform="translate(12.9597 12.9597)" fill="#FAFAFA"></path></svg></span>
+            </a>
+        </div>
+        <button type="button" onclick="toggleChaty(this)" style="width:54px;height:54px;border-radius:50%;background:#A886CD;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-496 507.7 54 54" style="width:44px;height:44px;"><circle cx="-469" cy="534.7" r="27" fill="#A886CD"></circle><path fill="#FFFFFF" d="M-459.9,523.7h-20.3c-1.9,0-3.4,1.5-3.4,3.4v15.3c0,1.9,1.5,3.4,3.4,3.4h11.4l5.9,4.9c0.2,0.2,0.3,0.2,0.5,0.2h0.3c0.3-0.2,0.5-0.5,0.5-0.8v-4.2h1.7c1.9,0,3.4-1.5,3.4-3.4v-15.3C-456.5,525.2-458,523.7-459.9,523.7z"></path></svg>
+        </button>
+    </div>
+</div>
+
+<script>
+// Mobile menu
+const burgerBtn = document.getElementById('burger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+burgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+// Chaty toggle
+function toggleChaty(btn) {
+    const channels = document.querySelectorAll('#chaty-widget-0 .chaty-channel');
+    const isOpen = channels[0].style.display !== 'none';
+    channels.forEach(c => c.style.display = isOpen ? 'none' : 'block');
+}
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// WhatsApp contact form
+document.getElementById('divine-contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('form-field-name').value || '';
+    const number = document.getElementById('form-field-field_f730942').value || '';
+    const message = document.getElementById('form-field-message').value || '';
+    const text = encodeURIComponent('Name: ' + name + '\nNumber: ' + number + '\nMessage: ' + message);
+    window.open('https://wa.me/916263540349?text=' + text, '_blank');
+});
+
+// Floating particles
+(function() {
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+    const COLORS = ['rgba(212,160,23,', 'rgba(255,107,26,', 'rgba(255,255,255,'];
+    const particles = [];
+    for (let i = 0; i < 60; i++) {
+        particles.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            r: Math.random() * 2.2 + 0.4,
+            speed: Math.random() * 0.55 + 0.18,
+            drift: (Math.random() - 0.5) * 0.35,
+            opacity: Math.random() * 0.45 + 0.08,
+            color: COLORS[Math.floor(Math.random() * COLORS.length)]
+        });
+    }
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = p.color + p.opacity + ')';
+            ctx.fill();
+            p.y -= p.speed; p.x += p.drift;
+            if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
+            if (p.x < -10) p.x = canvas.width + 10;
+            if (p.x > canvas.width + 10) p.x = -10;
+        });
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+</script>
+
+</body>
+</html>
